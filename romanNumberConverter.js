@@ -1,3 +1,10 @@
 exports.converter = function converter(decimalNumber) {
-    return I;
+
+    if (decimalNumber === 5)
+        return 'V';
+
+    if (decimalNumber === 4)
+        return 'IV';
+
+    return 'I'.repeat(decimalNumber);
 }

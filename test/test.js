@@ -44,5 +44,17 @@ describe('Roman number converter', function() {
         assert.equal(result, 'XIV');
     });
 
+    it('40 should return XL', function() {
+        let result = romanConverter.converter(40);
+        assert.equal(result, 'XL');
+    });
+
+    it('49 should return XLIX', function() {
+        let result = romanConverter.converter(49);
+        assert.equal(result, 'XLIX');
+    });
+
+
+
 
 });

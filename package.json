@@ -1,0 +1,10 @@
+{
+    "name": "roman-number",
+    "version": "0.0.0",
+    "scripts": {
+        "test": "mocha"
+    },
+    "devDependencies": {
+        "mocha": "^9.2.0"
+    }
+}

@@ -54,6 +54,21 @@ describe('Roman number converter', function() {
         assert.equal(result, 'XLIX');
     });
 
+    it('74 should return LXXIV', function() {
+        let result = romanConverter.converter(74);
+        assert.equal(result, 'LXXIV');
+    });
+
+    it('100 should return C', function() {
+        let result = romanConverter.converter(100);
+        assert.equal(result, 'C');
+    });
+
+    it('99 should return XCIX', function() {
+        let result = romanConverter.converter(99);
+        assert.equal(result, 'XCIX');
+    });
+
 
 
 

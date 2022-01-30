@@ -1,10 +1,15 @@
 exports.converter = function converter(decimalNumber) {
 
-    if (decimalNumber === 5)
-        return 'V';
+    let result = '';
+    if (decimalNumber >= 5 - 1) {
+        result = 'V';
+        decimalNumber -= 5;
+    }
 
-    if (decimalNumber === 4)
-        return 'IV';
+    if (decimalNumber === -1)
+        return 'I' + result;
 
-    return 'I'.repeat(decimalNumber);
+    result += 'I'.repeat(decimalNumber);
+
+    return result;
 }

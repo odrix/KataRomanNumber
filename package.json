@@ -1,10 +1,17 @@
 {
     "name": "roman-number",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "scripts": {
         "test": "mocha"
     },
     "devDependencies": {
         "mocha": "^9.2.0"
-    }
+    },
+    "dependencies": {
+        "express": "^4.17.2"
+    },
+    "module": "dist/my-library-name.esm.js",
+    "files": [
+        "dist/"
+    ]
 }

@@ -2,7 +2,9 @@ const express = require('express')
 const romanConverter = require('./romanNumberConverter')
 const app = express()
 const path = require('path');
-const port = 3000
+const port = 3000;
+
+var romanRes = {};
 
 app.get('/', (req, res) => {
     var options = {
@@ -21,10 +23,31 @@ app.get('/app.js', (req, res) => {
 })
 
 app.get('/convert/:decimalNumber', (req, res) => {
-
     let dec = parseInt(req.params.decimalNumber)
-    var romanNumber = romanConverter.converter(dec);
-    res.send(romanNumber);
+    let romanNumber = romanConverter.converter(dec);
+    sendMessage(romanNumber);
+    res.sendStatus(200);
+})
+
+function sendMessage(roman) {
+
+    let id = (new Date()).toLocaleTimeString();
+
+    romanRes.write('id:' + id + '\n');
+    romanRes.write('data:' + roman);
+    romanRes.write('\n\n');
+}
+
+app.get('/roman/', (req, res) => {
+
+    res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive'
+    });
+    res.flushHeaders();
+    res.write('retry:10000\n\n');
+    romanRes = res;
 })
 
 app.listen(port, () => {

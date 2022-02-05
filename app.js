@@ -4,16 +4,16 @@ const app = new Vue({
         decimal: '',
         roman: ''
     },
+    mounted() {
+        this.evSource = new EventSource('/roman');
+        let that = this;
+        this.evSource.onmessage = function(e) {
+            that.roman = e.data;
+        };
+    },
     methods: {
         convert() {
-            let that = this;
-            fetch('/convert/' + this.decimal)
-                .then((res) => {
-                    return res.text();
-                })
-                .then((result) => {
-                    that.roman = result;
-                });
+            fetch('/convert/' + this.decimal);
         }
     }
 });
